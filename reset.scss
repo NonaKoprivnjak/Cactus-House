@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    box-sizing: border-box;
+    display: block;
+}
+
+button, 
+input {
+    background: none;
+    border: none;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+a {
+    color: initial;
+    text-decoration: none;
+
+    &:visited {
+        text-decoration: none;
+        color: initial;
+    }
+}

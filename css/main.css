@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  box-sizing: border-box;
+  display: block;
+}
+
+button,
+input {
+  background: none;
+  border: none;
+}
+button:focus,
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+button:active,
+input:active {
+  outline: none;
+  box-shadow: none;
+}
+
+a {
+  color: initial;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: initial;
+}/*# sourceMappingURL=main.css.map */

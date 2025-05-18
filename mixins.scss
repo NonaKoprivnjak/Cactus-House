@@ -1,0 +1,77 @@
+@use "sass:math";
+
+//Functions for responsive Mixins
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < lenght($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - .02px, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints)==null, '', '#{$name}');
+}
+
+//Responsive Mixins
+@mixin media-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin media-down($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $current: map-get($breakpoints, $name);
+    $current-max: $current - .02px;
+
+    @if $min {
+        @media (max-width: $current-max) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin media-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+    $current-upper: map-get($breakpoints, $upper);
+    $current-upper-max: $current-upper - .02px;
+
+    @if $min !=null {
+        @media (min-width: $min) and (max-width: $current-upper-max){
+            @content;
+        }
+    }
+    @else if $min==null {
+        @include media-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+// Mixin for flex
+
+@mixin flexbox ($display: flex, $direction: row, $justifyContent: null, $alignItems: null, $wrap: nowrap) {
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-wrap: $wrap;
+}

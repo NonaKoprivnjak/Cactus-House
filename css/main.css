@@ -4,7 +4,6 @@
   border: 0;
   font: inherit;
   box-sizing: border-box;
-  display: block;
 }
 
 button,
@@ -30,4 +29,8 @@ a {
 a:visited {
   text-decoration: none;
   color: initial;
+}
+
+header {
+  padding-bottom: 5px;
 }/*# sourceMappingURL=main.css.map */

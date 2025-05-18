@@ -1,0 +1,17 @@
+@use 'sass:math';
+// Color variables
+$color-white: #fff;
+$color-black: #000;
+$color-dark-green: #105c2d;
+$color-purple: #b5318d;
+$color-pink: #fab6d9;
+$color-brown: #BE4C13;
+$color-red: #D81212;
+
+//Breakpoints for responsive mixins
+$grid-breakpoints: (
+"xs": 576px,
+"s": 768px,
+"m": 992px,
+"l": 1024px,
+"xl" 1280px);

@@ -1,1 +1,7 @@
-@import "reset"
+@import "reset";
+@import "mixins";  
+@import "fonts&variables";
+
+header {
+    background-color: $color-pink;
+}

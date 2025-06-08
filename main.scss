@@ -1,20 +1,26 @@
 @import "reset";
-@import "mixins";  
+@import "mixins";
 @import "fonts&variables";
 
 header {
-    background-color: $color-pink;
+    background-color: $color-light-green;
     padding: 10px 20px;
     display: flex;
 
     nav {
         flex-grow: 1;
         display: flex;
-        gap: 10px;
-        justify-content:center;
-        
+        gap: 30px;
+        justify-content: flex-end;
+        align-items: center;
+        text-transform: uppercase;
+
         a {
-            color: $color-dark-green;
+            color: $color-black;
+
+            &:hover {
+                color: $color-brown;
+            }
         }
     }
 
@@ -23,13 +29,153 @@ header {
     }
 
     @include media-down (m) {
-        background-color: $color-purple;
+        background-color: $color-pink;
+        justify-content: space-between;
+
+        nav {
+            display: none;
+
+        }
+
+        .burger-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
     }
+
     @include media-down (s) {
-        background-color: $color-dark-green;
+        background-color: $color-pink;
+    }
+}
+
+main {
+    padding: 20px 40px ;
+    .main-top {
+        .breadcrumbs {
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+                    &:not(:last-of-type) {
+                        &:after {
+                            content: "/";
+                            margin: 5px 5px;
+                        }
+                    }
+
+                    a {
+                        color: $color-brown;
+                        font-family: $font-cinzel;
+                        font-weight: 700;
+
+                        &:hover {
+                            color: $color-black;
+
+                        }
+
+                    }
+                }
+
+                span {
+                    color: $color-dark-green;
+                    font-family: $font-cinzel;
+                    font-weight: 900;
+
+                }
+            }
+        }
+h1 {
+    font-family: $font-cinzel;
+    font-size: 25px;
+    color: $color-black;
+    margin: 10px auto;
+    width: fit-content;
+}
+
+.top-cold-content {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .cc-container {
+        font-family: $font-poiretOne;
+        font-weight: 1000;
+        font-size: 18px;
+        max-width: 55%;
+        text-align: center;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        white-space: normal;
+        -webkit-line-clamp: 2;
+        height: auto;
+        -webkit-box-orient: vertical;
+
+        &.expanded {
+            -webkit-line-clamp: unset;
+        }
+    }
+    .read-more-btn {
+        font-family: $font-lexend;
+        font-size: 16px;
+        font-weight: 500;
+        color: $color-brown;
+        cursor: pointer;
+        margin: 10px 0;
+
+        &:hover {
+            text-decoration: underline;
+            color: $color-purple;
+        }
+    }
+    
+    
+}
     }
 }
 
 footer {
     padding: 20px;
+    display: flex;
+    background-color: $color-pink;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer-links-container {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+        max-width: 70%;
+
+        .links-title {
+            margin-bottom: 15px;
+            display: block;
+            color: $color-dark-green;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                padding-bottom: 10px;
+
+                a {
+                    color: $color-purple;
+
+                    &:hover {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-down (m) {
+        background-color: $color-light-green;
+    }
 }

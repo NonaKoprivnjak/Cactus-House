@@ -1,4 +1,28 @@
 @use 'sass:math';
+
+// Fonts
+@font-face {
+    font-family: "Cinzel";
+    src: url('../Fonts/Cinzel-Regular.woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Lexend";
+    src: url('../Fonts/Lexend-Regular.woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Poiret One";
+    src: url('../Fonts/PoiretOne-Regular.woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 // Color variables
 $color-white: #fff;
 $color-black: #000;
@@ -7,6 +31,7 @@ $color-purple: #b5318d;
 $color-pink: #fab6d9;
 $color-brown: #BE4C13;
 $color-red: #D81212;
+$color-light-green:#78d696;
 
 //Breakpoints for responsive mixins
 $grid-breakpoints: (
@@ -14,4 +39,10 @@ $grid-breakpoints: (
 "s": 768px,
 "m": 992px,
 "l": 1024px,
-"xl" 1280px);
+"xl": 1280px
+);
+
+// Font variables
+$font-cinzel: "Cinzel";
+$font-lexend: "Lexend";
+$font-poiretOne: "Poiret One";

@@ -4,4 +4,32 @@
 
 header {
     background-color: $color-pink;
+    padding: 10px 20px;
+    display: flex;
+
+    nav {
+        flex-grow: 1;
+        display: flex;
+        gap: 10px;
+        justify-content:center;
+        
+        a {
+            color: $color-dark-green;
+        }
+    }
+
+    .burger-btn {
+        display: none;
+    }
+
+    @include media-down (m) {
+        background-color: $color-purple;
+    }
+    @include media-down (s) {
+        background-color: $color-dark-green;
+    }
+}
+
+footer {
+    padding: 20px;
 }

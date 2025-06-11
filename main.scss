@@ -104,7 +104,7 @@ h1 {
 
     .cc-container {
         font-family: $font-poiretOne;
-        font-weight: 1000;
+        font-weight: 900;
         font-size: 18px;
         max-width: 55%;
         text-align: center;
@@ -136,6 +136,23 @@ h1 {
     
     
 }
+    }
+
+    .main-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+        .bottom-cold-content {
+        font-family: $font-poiretOne;
+        font-weight: 900;
+        font-size: 18px;
+        text-align: center;
+        }
+
+        @include media-down (m) {
+            font-size: 16px;
+        }
     }
 }
 

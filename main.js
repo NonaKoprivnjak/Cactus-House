@@ -10,4 +10,4 @@ readMore?.addEventListener('click', () => {
     readMore.innerHTML = 'Read More';
  }
 })
-window.alert("Would you like to sign up for our newsletter?");
+// window.alert("Would you like to sign up for our newsletter?");

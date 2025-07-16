@@ -50,6 +50,10 @@ a:visited {
   font-style: normal;
   font-display: swap;
 }
+body {
+  position: relative;
+}
+
 header {
   background-color: #78d696;
   padding: 30px 20px;
@@ -75,6 +79,11 @@ header nav a:hover {
 header .burger-btn {
   display: none;
 }
+@media (min-width: 992px) {
+  header .close-burger {
+    display: none;
+  }
+}
 @media (max-width: 991.98px) {
   header {
     background-color: #fab6d9;
@@ -82,6 +91,30 @@ header .burger-btn {
   }
   header nav {
     display: none;
+    position: fixed;
+    top: 0;
+    flex-direction: column;
+    height: 100dvh;
+    background-color: #fab6d9;
+    opacity: 0.9;
+    right: 0;
+    justify-content: center;
+    max-width: 30%;
+    width: 100%;
+    z-index: 15;
+    transform: scaleX(100%);
+    transition: transform 0.75s cubic-bezier(0.19, 0.43, 0.37, 1);
+  }
+  header .close-burger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 35px 20px;
+  }
+  header .js-nav {
+    display: flex;
+    transform: scaleX(0);
+    transition: transform 0.75s cubic-bezier(0.19, 0.43, 0.37, 1);
   }
   header .burger-btn {
     display: flex;
@@ -95,8 +128,30 @@ header .burger-btn {
   }
 }
 
+.overlay {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .overlay {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #105c2d;
+    z-index: 12;
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out;
+  }
+}
+.overlay.js-overlay {
+  opacity: 0.7;
+  transition: opacity 0.75s ease-in-out;
+}
+
 main {
   padding: 20px 40px;
+  position: relative;
 }
 main .main-top .breadcrumbs ul {
   display: flex;
@@ -158,11 +213,30 @@ main .main-top .top-cold-content .cc-container {
   text-overflow: ellipsis;
   white-space: normal;
   -webkit-line-clamp: 2;
-  height: auto;
+  height: 45px;
+  max-height: 45px;
   -webkit-box-orient: vertical;
+  position: relative;
+  transition: all 0.75s ease-in-out;
+}
+main .main-top .top-cold-content .cc-container::after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  background: #78D696;
+  background: radial-gradient(circle, rgba(120, 214, 150, 0.67) 0%, rgba(250, 182, 217, 0) 100%);
 }
 main .main-top .top-cold-content .cc-container.expanded {
   -webkit-line-clamp: unset;
+  height: auto;
+  max-height: 217px;
+  transition: all 0.75s ease-in-out;
+}
+main .main-top .top-cold-content .cc-container::after {
+  opacity: 60%;
 }
 main .main-top .top-cold-content .read-more-btn {
   font-family: "Lexend";
@@ -184,6 +258,11 @@ main .main-top .top-cold-content .read-more-btn::before {
   transform-origin: left;
   transition: transform 0.75s ease-in-out;
   transform: scale(0);
+  z-index: 1;
+}
+main .main-top .top-cold-content .read-more-btn .read-more {
+  z-index: 2;
+  position: relative;
 }
 main .main-top .top-cold-content .read-more-btn:hover {
   color: #b5318d;
@@ -194,6 +273,9 @@ main .main-top .top-cold-content .read-more-btn:hover::before {
   transition: transform 0.75s ease-in-out;
   transform-origin: right;
 }
+main .js-none {
+  display: none !important;
+}
 main .filters-container .filters-title {
   font-family: "Lexend";
   font-size: 16px;
@@ -201,6 +283,14 @@ main .filters-container .filters-title {
 main .filters-container .filters-item {
   font-family: "Cinzel";
   font-size: 14px;
+}
+main .filters-container .view-all-FI {
+  font-family: "Cinzel";
+  font-size: 13px;
+}
+main .filters-container .view-all-filters {
+  font-family: "Cinzel";
+  font-size: 13px;
 }
 main .main-bottom {
   display: flex;

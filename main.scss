@@ -213,8 +213,6 @@ main {
                     position: absolute;
                     bottom: 0;
                     height: 100%;
-//                  background: #FAB6D9;
-// background: linear-gradient(179deg, rgba(250, 182, 217, 0) 0%, rgba(120, 214, 150, 0.46) 100%);
 background: #78D696;
 background: radial-gradient(circle, rgba(120, 214, 150, 0.67) 0%, rgba(250, 182, 217, 0) 100%);
                 }
@@ -290,6 +288,7 @@ background: radial-gradient(circle, rgba(120, 214, 150, 0.67) 0%, rgba(250, 182,
         .filters-title {
             font-family: $font-lexend;
             font-size: 16px;
+            padding-bottom: 10px;
         }
         .filters-item {
             font-family: $font-cinzel;
@@ -300,12 +299,16 @@ background: radial-gradient(circle, rgba(120, 214, 150, 0.67) 0%, rgba(250, 182,
         .view-all-FI {
             font-family: $font-cinzel;
             font-size: 13px;
+            
         }
 
         .view-all-filters {
             font-family: $font-cinzel;
             font-size: 13px;
+        
         }
+
+    
     }
 
     .main-bottom {
@@ -372,4 +375,10 @@ footer {
     @include media-down (m) {
         background-color: $color-light-green;
     }
+}
+
+.js-filter-box {
+height: 30px;
+overflow-y: hidden;
+
 }

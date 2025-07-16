@@ -279,6 +279,7 @@ main .js-none {
 main .filters-container .filters-title {
   font-family: "Lexend";
   font-size: 16px;
+  padding-bottom: 10px;
 }
 main .filters-container .filters-item {
   font-family: "Cinzel";
@@ -348,4 +349,9 @@ footer .footer-links-container ul li a:hover {
   footer {
     background-color: #78d696;
   }
+}
+
+.js-filter-box {
+  height: 30px;
+  overflow-y: hidden;
 }/*# sourceMappingURL=main.css.map */

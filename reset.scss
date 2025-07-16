@@ -4,7 +4,6 @@
     border: 0;
     font: inherit;
     box-sizing: border-box;
-    display: block;
 }
 
 button, 
@@ -24,11 +23,9 @@ input {
 }
 
 a {
-    color: initial;
     text-decoration: none;
 
     &:visited {
         text-decoration: none;
-        color: initial;
     }
 }

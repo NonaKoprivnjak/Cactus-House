@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Cinzel";
+  src: url("../Fonts/Cinzel-Regular.woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lexend";
+  src: url("../Fonts/Lexend-Regular.woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poiret One";
+  src: url("../Fonts/PoiretOne-Regular.woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}/*# sourceMappingURL=fonts&variables.css.map */

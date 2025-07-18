@@ -1,6 +1,6 @@
 const readMore = document.querySelector(".read-more");
 const ccContent = document.querySelector(".cc-container");
-console.log(readMore);
+
 
 // window.alert("Would you like to sign up for our newsletter?");
 
@@ -43,6 +43,7 @@ function FiltersLogic () {
    // Number of Filters to show
    const filtersToShow = 4;
    const filterBox = document.querySelectorAll('.filter-box');
+   const filterTitle = document.querySelectorAll('.filters-title');
 
    // Close/Open Filter Box
    
@@ -50,13 +51,37 @@ function FiltersLogic () {
    //    filter.querySelector('.filters-title').classList.toggle('js-filters-title');
    //    filter.querySelector('.filters-list').classList.toggle('js-filters-list');
    // }))
-   filterBox.forEach(filter => {
-      filter.querySelector('.filters-title').addEventListener('click', () => {
-            filterBox.forEach(f => f.classList.remove('js-filter-box'));
-            filter.classList.add('js-filter-box')
+   // filterBox.forEach(filter => {
+   //    filter.querySelector('.filters-title').addEventListener('click', () => {
+   //          filterBox.forEach(f => f.classList.remove('js-filter-box'));
+   //          filter.classList.add('js-filter-box')
 
-      })
-   })
+   //    })
+   // })
+
+   filterTitle && filterTitle.forEach((el) => {
+      
+      el.addEventListener('click', (e) => {
+         
+         let filterItem = e.target.parentElement;
+         let filterContainer = e.target.parentElement.parentElement;
+         let filterList = filterContainer.querySelector('.filters-list');
+
+         filterBox.forEach((el) => {
+            if (el == filterContainer) {
+               filterItem.classList.toggle('js-filters-title');
+               filterList.classList.toggle('js-filters-list');
+            } 
+             
+         });
+      });
+
+      if (window.innerWidth < 1024) {
+         filterBox.forEach((el) => {
+            el.classList.remove('js-filter-box');
+         });
+      }
+   });
 
    function HideAditionalFilters () {
       for (let i = filtersToShow; i < filterBox.length; i++) {

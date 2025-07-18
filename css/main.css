@@ -75,6 +75,7 @@ header nav a {
 header nav a:hover {
   color: #BE4C13;
   transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 header .burger-btn {
   display: none;
@@ -102,7 +103,8 @@ header .burger-btn {
     max-width: 30%;
     width: 100%;
     z-index: 15;
-    transform: scaleX(100%);
+    transform: scaleX(0);
+    transform-origin: top right;
     transition: transform 0.75s cubic-bezier(0.19, 0.43, 0.37, 1);
   }
   header .close-burger {
@@ -113,7 +115,7 @@ header .burger-btn {
   }
   header .js-nav {
     display: flex;
-    transform: scaleX(0);
+    transform: scaleX(1);
     transition: transform 0.75s cubic-bezier(0.19, 0.43, 0.37, 1);
   }
   header .burger-btn {
@@ -276,22 +278,110 @@ main .main-top .top-cold-content .read-more-btn:hover::before {
 main .js-none {
   display: none !important;
 }
-main .filters-container .filters-title {
+main .filters-top {
+  font-family: "Lexend";
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #105c2d;
+}
+main .filters .filters-container .filter-box .filters-title {
   font-family: "Lexend";
   font-size: 16px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-main .filters-container .filters-item {
+main .filters .filters-container .filter-box .filters-title img {
+  transform: rotate(0);
+  transition: transform 0.5s ease-in-out;
+}
+main .filters .filters-container .filter-box .filters-title.js-filters-title img {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in-out;
+}
+main .filters .filters-container .filter-box .filters-list {
   font-family: "Cinzel";
   font-size: 14px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 300px;
+  height: auto;
+  transition: max-height 0.5s ease-in-out;
 }
-main .filters-container .view-all-FI {
+main .filters .filters-container .filter-box .filters-list.js-filters-list {
+  height: 0;
+  overflow-y: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+}
+main .filters .filters-container .filter-box .view-all-FI {
   font-family: "Cinzel";
   font-size: 13px;
+  display: block;
+  cursor: pointer;
 }
-main .filters-container .view-all-filters {
+main .filters .filters-container .filter-box .view-all-FI:hover {
+  color: #105c2d;
+  text-decoration: underline;
+}
+main .filters .filters-container .filter-box.custom-checkbox .filters-item .checkbox-label {
+  position: relative;
+  padding-left: 21px;
+  display: flex;
+  align-items: center;
+}
+main .filters .filters-container .filter-box.custom-checkbox .filters-item input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  left: 0;
+  cursor: pointer;
+}
+main .filters .filters-container .filter-box.custom-checkbox .filters-item input::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  border: 1px solid #105c2d;
+  border-radius: 5px;
+  margin-top: -1px;
+  position: relative;
+  z-index: 3;
+}
+main .filters .filters-container .filter-box.custom-checkbox .filters-item input:checked::before {
+  background-color: #78d696;
+}
+main .filters .filters-container .filter-box.custom-checkbox .filters-item input:checked::after {
+  content: url(../Images/Check.svg);
+  width: 18px;
+  height: 18px;
+  display: block;
+  z-index: 4;
+  position: absolute;
+  top: -4px;
+  left: -2px;
+}
+main .filters .filters-container .view-all-filters {
   font-family: "Cinzel";
   font-size: 13px;
+  cursor: pointer;
+  margin-top: 3px;
+}
+main .filters .filters-container .view-all-filters .all-filters {
+  border-style: outset;
+  border-width: 1px;
+  border-color: #b5318d;
+  border-radius: 5px;
+  line-height: 15px;
+}
+main .filters .filters-container .view-all-filters .all-filters:hover {
+  color: #b5318d;
 }
 main .main-bottom {
   display: flex;

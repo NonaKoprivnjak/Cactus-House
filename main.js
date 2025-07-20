@@ -152,3 +152,22 @@ for (let i = 0; i < moreItems.length; i++) {
 
 }
 FiltersLogic();
+
+// Scroll back to Top
+
+const scrollButton = document.getElementById("scrollButton");
+window.addEventListener("scroll", (e) => {
+  let scroll = this.scrollY;
+
+    if (scroll > 104) {
+      scrollButton.classList.add('js-scroll-btn');
+    } else {
+      scrollButton.classList.remove('js-scroll-btn');
+    }
+  })
+
+  // Back to top button
+  scrollButton.onclick = () => window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });

@@ -73,7 +73,7 @@ header nav a {
   font-weight: bold;
 }
 header nav a:hover {
-  color: #BE4C13;
+  color: #105c2d;
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -96,13 +96,13 @@ header .burger-btn {
     top: 0;
     flex-direction: column;
     height: 100dvh;
-    background-color: #fab6d9;
-    opacity: 0.9;
+    background: #78D696;
+    background: linear-gradient(1deg, rgba(120, 214, 150, 0.67) 0%, rgb(250, 182, 217) 50%);
     right: 0;
     justify-content: center;
     max-width: 30%;
     width: 100%;
-    z-index: 15;
+    z-index: 30;
     transform: scaleX(0);
     transform-origin: top right;
     transition: transform 0.75s cubic-bezier(0.19, 0.43, 0.37, 1);
@@ -289,7 +289,6 @@ main .filters-products-container {
 }
 main .filters-products-container .filters {
   width: calc(20% - 15px);
-  background-color: #f9f9f9;
 }
 main .filters-products-container .filters-top {
   font-family: "Lexend";
@@ -311,6 +310,9 @@ main .filters-products-container .filters .filters-container .filter-box .filter
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+main .filters-products-container .filters .filters-container .filter-box .filters-title span {
+  flex-grow: 1;
 }
 main .filters-products-container .filters .filters-container .filter-box .filters-title img {
   transform: rotate(0);
@@ -350,13 +352,13 @@ main .filters-products-container .filters .filters-container .filter-box .view-a
   color: #105c2d;
   text-decoration: underline;
 }
-main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item .checkbox-label {
+main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item .checkbox-label, main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item .checkbox-label {
   position: relative;
   padding-left: 21px;
   display: flex;
   align-items: center;
 }
-main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input {
+main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input, main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item input {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -364,7 +366,7 @@ main .filters-products-container .filters .filters-container .filter-box.custom-
   left: 0;
   cursor: pointer;
 }
-main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input::before {
+main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input::before, main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item input::before {
   content: "";
   width: 16px;
   height: 16px;
@@ -375,10 +377,10 @@ main .filters-products-container .filters .filters-container .filter-box.custom-
   position: relative;
   z-index: 3;
 }
-main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input:checked::before {
+main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input:checked::before, main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item input:checked::before {
   background-color: #78d696;
 }
-main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input:checked::after {
+main .filters-products-container .filters .filters-container .filter-box.custom-checkbox .filters-item input:checked::after, main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item input:checked::after {
   content: url(../Images/Check.svg);
   width: 18px;
   height: 18px;
@@ -387,6 +389,19 @@ main .filters-products-container .filters .filters-container .filter-box.custom-
   position: absolute;
   top: -4px;
   left: -2px;
+}
+main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item .checkbox-label input::before {
+  border-radius: 50%;
+}
+main .filters-products-container .filters .filters-container .filter-box.custom-radiobtn .filters-item .checkbox-label input::after {
+  border-radius: 50%;
+  content: "";
+  background-color: #105c2d;
+  border: 2px solid #fff;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 1px;
 }
 main .filters-products-container .filters .filters-container .view-all-filters {
   font-family: "Cinzel";
@@ -417,14 +432,49 @@ main .filters-products-container .filters .filters-container .view-all-filters .
   }
   main .filters-products-container .filters-top h2 {
     color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
   main .filters-products-container .filters-container {
     width: 100%;
     bottom: 0;
-    position: absolute;
+    left: 0;
+    padding: 10px;
+    max-height: 80dvh;
+    position: fixed;
+    overflow-y: auto;
     background-color: #fff;
-    transform: translateY(100%);
+    transition: transform 0.75s ease-in-out;
+    transform: translateY(200%);
   }
+  main .filters-products-container .filters-container .filters-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #105c2d;
+    padding: 10px 0;
+  }
+  main .filters-products-container .filters-container .filters-mobile-header h2 {
+    font-family: "Lexend";
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #105c2d;
+  }
+  main .filters-products-container .filters-container .filters-mobile-header .close-mobile-filters {
+    cursor: pointer;
+  }
+  main .filters-products-container .filters-container .filters-mobile-header .close-mobile-filters img {
+    pointer-events: none;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(11%) saturate(3925%) hue-rotate(94deg) brightness(100%) contrast(87%);
+  }
+  main .filters-products-container .filters-container.js-mobile-filters {
+    transition: transform 0.75s ease-in-out;
+    transform: translateY(0);
+  }
+}
+main .filters-products-container .filters .js-filters {
+  z-index: 13;
 }
 main .filters-products-container .products {
   width: calc(80% - 15px);
@@ -460,6 +510,7 @@ main .filters-products-container .products .product-tile .info-container .labels
   display: flex;
   gap: 5px;
   overflow-x: auto;
+  min-height: 29px;
 }
 main .filters-products-container .products .product-tile .info-container .labels-container-item {
   font-size: 14px;
@@ -529,6 +580,7 @@ main .filters-products-container .products .product-tile .info-container .price-
 main .filters-products-container .products .product-tile .info-container .price-container .product-icons {
   display: flex;
   justify-content: flex-end;
+  gap: 4px;
   cursor: pointer;
 }
 main .filters-products-container .products .product-tile .info-container .price-container .product-icons:hover {
@@ -600,6 +652,11 @@ main .main-bottom .bottom-cold-content {
     font-size: 16px;
   }
 }
+@media (max-width: 767.98px) {
+  main .main-bottom .bottom-cold-content {
+    max-width: 80%;
+  }
+}
 
 footer {
   padding: 20px;
@@ -641,6 +698,26 @@ footer .footer-links-container ul li a:hover {
     background-color: #78d696;
   }
 }
+@media (max-width: 767.98px) {
+  footer {
+    flex-direction: column;
+  }
+  footer .footer-links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+    max-width: 100%;
+  }
+  footer .footer-links-container .footer-links .links-title {
+    display: flex;
+  }
+  footer .footer-links-container .footer-links .links-title:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
 
 .js-filter-box {
   height: 30px;
@@ -668,4 +745,15 @@ footer .footer-links-container ul li a:hover {
   transform: translateY(0) !important;
   opacity: 1 !important;
   transition: all 0.75s ease-in-out !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .desktop-only {
+    display: none !important;
+  }
 }/*# sourceMappingURL=main.css.map */

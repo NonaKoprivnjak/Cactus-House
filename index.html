@@ -57,39 +57,42 @@
         <div class="filters-products-container">
             <div class="filters">
                 <div class="filters-top">
-                    <h2>Filters</h2>
+                    <h2>Filters <span class="filters-icon mobile-only"><img src="Images/filter-icon.svg" alt="filters-icon" width="24" height="24"></span></h2>
                 </div>
                 <div class="filters-container">
-                    <div class="filter-box">
+                    <div class="filters-mobile-header mobile-only"><h2>Filters</h2>
+                    <span class="close-mobile-filters"><img src="Images/x-close.svg" alt="close-filter" width="24" height="24"></span>
+                </div>
+                    <div class="filter-box custom-radiobtn">
                         <div class="filters-title">
                             <span>Order By</span>
                             <img src="Images/arrow.svg" alt="arrow" width="18" height="18">
                         </div>
                         <ul class="filters-list">
                             <li class="filters-item">
-                                <label class="checkbox-label">
-                                    <input type="radio" class="radio" checked>
+                                <label class="checkbox-label radio-label">
+                                    <input type="radio" class="radio" checked name="sorting">
                                     <span>Price Ascending</span>
 
                                 </label>
                             </li>
                             <li class="filters-item">
-                                <label class="checkbox-label">
-                                    <input type="radio" class="radio">
+                                <label class="checkbox-label radio-label">
+                                    <input type="radio" class="radio" name="sorting">
                                     <span>Price Descending</span>
 
                                 </label>
                             </li>
                             <li class="filters-item">
-                                <label class="checkbox-label">
-                                    <input type="radio" class="radio">
+                                <label class="checkbox-label radio-label">
+                                    <input type="radio" class="radio" name="sorting">
                                     <span>Popularity</span>
 
                                 </label>
                             </li>
                             <li class="filters-item">
-                                <label class="checkbox-label">
-                                    <input type="radio" class="radio">
+                                <label class="checkbox-label radio-label">
+                                    <input type="radio" class="radio" name="sorting">
                                     <span>Availability</span>
 
                                 </label>
@@ -526,7 +529,7 @@
             <div class="linking-script"></div>
         </div>
     </main>
-    <footer>
+    <footer>    
         <div class="footer-links-container">
             <div class="footer-links">
                 <span class="links-title">Our Company</span>
